@@ -44,7 +44,7 @@ input[type="submit"] {
   z-index: 10;
 }
 .food {
-    max-width: 250px;
+    max-width: 260px;
     position: relative;
     top: -11vw;
     animation: scale .7s ease-in-out;
@@ -125,9 +125,9 @@ h2 {
   left: 30%;
 }
 .badges {
-    width: 10vw;
+    width: 7vw;
   position: absolute;
-  top: 30%;
+  top: 27%;
   left: 55%;
   animation: badge 5s ease-in-out infinite;
 }
@@ -157,9 +157,9 @@ h2 {
   left: 10%;
 }
   .badges {
-    width: 20vw;
-  top: 40%;
-  left: 70%;
+    width: 15vw;
+  top: 37%;
+  left: 63%;
 }
 }
 @media (max-width: 480px) {
@@ -175,7 +175,7 @@ h2 {
         left: -100vw;
     }
     .food {
-        width: 60%;
+        width: 65%;
     } 
 
     .submit,
@@ -196,11 +196,20 @@ h2 {
   left: 10%;
 }
   .badges {
-   width: 25vw;
-  top: 50%;
-  left: 70%;
+   width: 27vw;
+  top: 37%;
+  left: 65%;
 }
 }
+
+
+
+
+
+
+
+
+
 
 
 
