@@ -1,3 +1,6 @@
+const API_SEND_SMS_URL = 'https://admin.growfood.pro/api/front/v1/marketing/activities/send-sms';
+const API_VERIFY_CODE_URL = 'https://admin.growfood.pro/api/front/v1/marketing/verify-code';
+
 const phoneStorage = {
   storageKey: "wheel-participants",
   getUsedPhones() {
@@ -70,50 +73,99 @@ function validatePhone(phoneNumber) {
 }
 document.getElementById("phoneInput").addEventListener("input", function (e) {
   e.target.value = formatPhone(e.target.value);
-  document.getElementById("phoneError").classList.add("hidden");
   e.target.classList.remove("error");
 });
-document
-  .getElementById("phoneForm")
-  .addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const phoneInput = document.getElementById("phoneInput");
-    const phone = phoneInput.value;
-    if (!validatePhone(phone)) {
-      showToast("Введите корректный номер телефона", "", "error");
-      phoneInput.classList.add("error");
-      return;
-    }
-    await new Promise((resolve) => setTimeout(resolve, 500));
-    if (phoneStorage.isPhoneUsed(phone)) {
-      showToast(
-        "Этот номер уже участвовал в&nbsp;розыгрыше!",
-        "Каждый номер может участвовать только один раз.",
-        "error"
-      );
 
-      return;
-    }
-    const success = phoneStorage.addUsedPhone(phone);
-    if (!success) {
-      showToast("Произошла ошибка. Попробуйте ещё раз.", "", "error");
+document.getElementById("phoneForm").addEventListener("submit", handlePhoneSubmit);
+document.getElementById("codeForm").addEventListener("submit", handleCodeSubmit);
+async function handlePhoneSubmit(e) {
+  e.preventDefault();
+  const phoneInput = document.getElementById("phoneInput");
+  const submitButton = document.getElementById("submitPhone");
+  const phoneRaw = phoneInput.value;
+  const phoneClean = phoneRaw.replace(/\D/g, "");
 
-      return;
+  if (!validatePhone(phoneRaw)) {
+    showToast("Введите корректный номер телефона", "", "error");
+    phoneInput.classList.add("error");
+    return;
+  }
+
+  submitButton.value = "Отправка...";
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch(API_SEND_SMS_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ phone: phoneClean })
+    });
+
+    if (response.ok) {
+      userPhoneForVerification = phoneClean;
+      showToast("СМС с кодом отправлено!", `Введите код из СМС`, "success");
+      switchToCodeVerification();
+    } else {
+      const errorData = await response.json();
+      const message = errorData.message || 'Произошла ошибка';
+      showToast(message, "", "error");
     }
-    location.href = "./index2.html";
-  });
+  } catch (error) {
+    showToast("Не удалось подключиться к серверу", "Проверьте интернет.", "error");
+  } finally {
+    submitButton.value = "Получить код";
+    submitButton.disabled = false;
+  }
+}
+
+async function handleCodeSubmit(e) {
+  e.preventDefault();
+  const codeInput = document.getElementById("codeInput");
+  const submitButton = document.getElementById("submitCode");
+  const code = codeInput.value;
+
+  if (!code || code.length !== 4) {
+    showToast("Код должен состоять из 4 цифр", "", "error");
+    return;
+  }
+
+  submitButton.value = "Проверка...";
+  submitButton.disabled = true;
+
+  try {
+    const response = await fetch(API_VERIFY_CODE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ phone: userPhoneForVerification, code: code })
+    });
+
+    if (response.ok) {
+      // Можно сохранить номер в localStorage для статистики, если это нужно
+      // phoneStorage.addUsedPhone(userPhoneForVerification);
+      location.href = "../../Desktop/Пейджи/index2.html";
+    } else {
+      const errorData = await response.json();
+      const message = errorData.message || 'Неверный код';
+      showToast(message, "", "error");
+    }
+  } catch (error) {
+    showToast("Не удалось подключиться к серверу", "Проверьте интернет.", "error");
+  } finally {
+    submitButton.value = "Подтвердить";
+    submitButton.disabled = false;
+  }
+}
+
+function switchToCodeVerification() {
+  document.getElementById("phone-form-container").classList.add("hidden");
+  document.getElementById("code-form-container").classList.remove("hidden");
+  document.getElementById("codeInput").focus();
+}
 function showToast(title, description, type = "info") {
   const toastContainer = document.getElementById("toastContainer");
   const toast = document.createElement("div");
   toast.className = `toast ${type}`;
-  toast.innerHTML = `
-                <div class="toast-title">${title}</div>
-                ${
-                  description
-                    ? `<div class="toast-description">${description}</div>`
-                    : ""
-                }
-            `;
+  toast.innerHTML = `<div class="toast-title">${title}</div>${description ? `<div class="toast-description">${description}</div>` : ""}`;
   toastContainer.appendChild(toast);
   setTimeout(() => toast.classList.add("show"), 100);
   setTimeout(() => {
@@ -124,5 +176,4 @@ function showToast(title, description, type = "info") {
       }
     }, 300);
   }, 4000);
-
 }

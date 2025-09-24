@@ -13,16 +13,31 @@
       <div class="text">
         <p>Введите номер телефона</p>
         <p>На этот номер доступен один розыгрыш</p>
-        <form id="phoneForm">
-          <input
-            type="tel"
-            id="phoneInput"
-            placeholder="+7 (999) 999-99-99"
-            maxlength="18"
-            class="form-input"
-          />
-          <input type="submit" value="Отправить" id="submitPhone" />
-        </form>
+        <div id="phone-form-container">
+          <form id="phoneForm">
+            <input
+                    type="tel"
+                    id="phoneInput"
+                    placeholder="+7 (999) 999-99-99"
+                    maxlength="18"
+                    class="form-input"
+            />
+            <input type="submit" value="Получить код" id="submitPhone" />
+          </form>
+        </div>
+        <div id="code-form-container" class="hidden">
+          <p>Мы отправили СМС с кодом на ваш номер</p>
+          <form id="codeForm">
+            <input
+                    type="tel"
+                    id="codeInput"
+                    placeholder="1234"
+                    maxlength="4"
+                    class="form-input"
+            />
+            <input type="submit" value="Подтвердить" id="submitCode" />
+          </form>
+        </div>
         <a href="#">Правила акции</a>
         <a href="#">Согласие на&nbsp;обработку персональных данных</a>
       </div>
@@ -31,4 +46,3 @@
   </body>
  
 </html>
-
