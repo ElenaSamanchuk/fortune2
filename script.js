@@ -90,7 +90,15 @@ async function handlePhoneSubmit(e) {
     phoneInput.classList.add("error");
     return;
   }
+  if (phoneStorage.isPhoneUsed(phone)) {
+      showToast(
+        "Этот номер уже участвовал в&nbsp;розыгрыше!",
+        "Каждый номер может участвовать только один раз.",
+        "error"
+      );
 
+      return;
+    }
   submitButton.value = "Отправка...";
   submitButton.disabled = true;
 
@@ -176,6 +184,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
