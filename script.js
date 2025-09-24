@@ -140,8 +140,7 @@ async function handleCodeSubmit(e) {
     });
 
     if (response.ok) {
-      // Можно сохранить номер в localStorage для статистики, если это нужно
-      // phoneStorage.addUsedPhone(userPhoneForVerification);
+      phoneStorage.addUsedPhone(userPhoneForVerification);
       location.href = "../../Desktop/Пейджи/index2.html";
     } else {
       const errorData = await response.json();
@@ -177,3 +176,4 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
