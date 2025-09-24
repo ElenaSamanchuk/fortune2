@@ -118,6 +118,12 @@ h2 {
         rotate: 0;
     }
 }
+.message {
+  width: 20vw;
+  position: absolute;
+  top: 60%;
+  left: 20%;
+}
 @media (max-width: 960px) {
     .bg {
         top: -70vh;
@@ -137,6 +143,11 @@ h2 {
     }
   .badge {
  scale: 2;
+}
+  .message {
+  width: 30vw;
+  top: 70%;
+  left: 10%;
 }
 }
 @media (max-width: 480px) {
@@ -167,7 +178,13 @@ h2 {
   margin-bottom: 7vw;
   padding: 1vw 1.5vw; 
 }
+  .message {
+  width: 50vw;
+  top: 60%;
+  left: 10%;
 }
+}
+
 
 
 
