@@ -3,62 +3,62 @@ const prizes = [
     id: 1,
     name: "Бефстроганов и говядины в сливках с картофельным пюре",
     image: "./img/1.webp",
-    probability: '⭐️⭐️⭐️ Эпик',
+    probability: 'Эпик',
   },
   {
     id: 2,
     name: "Борщ с телятиной без сметаны",
     image: "./img/10.webp",
-    probability: '⭐️⭐️ Редкость',
+    probability: 'Редкость',
   },
   {
     id: 3,
     name: "Гедзе с курицей в соусе Чили",
     image: "./img/9.webp",
-    probability: '⭐️⭐️ Редкость',
+    probability: 'Редкость',
   },
   {
     id: 4,
      name: "Куриные котлеты с пюре и сырным соусом",
     image: "./img/8.webp",
-    probability: '⭐️⭐️⭐️ Эпик',
+    probability: 'Эпик',
   },
   {
     id: 5,
       name: "Куриные фрикадельки с рисом и овощами",
     image: "./img/7.webp",
-    probability: '⭐️ База',
+    probability: 'База',
     
   },
   {
     id: 6,
     name: "Паста с морепродуктами",
     image: "./img/6.webp",
-    probability: '⭐️⭐️⭐️ Эпик',
+    probability: 'Эпик',
   },
   {
     id: 7,
     name: "Птитим с вишней и сливочным соусом",
     image: "./img/5.webp",
-    probability: '⭐️ База',
+    probability: 'База',
   },
   {
     id: 8,
       name: "Традиционный плов с говядиной",
     image: "./img/4.webp",
-    probability: '⭐️⭐️ Редкость',
+    probability: 'Редкость',
   },
   {
     id: 9,
        name: "Филе белой рыбы, запеченное в соусе мисо, с копчеными сливками и картофельным пюре",
     image: "./img/3.webp",
-    probability: '⭐️ База',
+    probability: 'База',
   },
   {
     id: 10,
      name: "Шоколадный брауни",
     image: "./img/2.webp",
-    probability: '⭐️⭐️⭐️⭐️ Легенда',
+    probability: 'Легенда',
   },
 ];
 let deg = [36, 72, 108, 144, 180, 216, 252, 288, 324, 360];
@@ -113,6 +113,7 @@ spinButton.addEventListener("click", () => {
     location.href = "./index3.html";
   }, 8000);
 });
+
 
 
 
