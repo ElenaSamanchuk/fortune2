@@ -44,9 +44,9 @@ input[type="submit"] {
   z-index: 10;
 }
 .food {
-    max-width: 260px;
+    max-width: 320px;
     position: relative;
-    top: -11vw;
+    top: -6vw;
     animation: scale .7s ease-in-out;
 } 
 @keyframes scale {
@@ -81,7 +81,7 @@ input[type="submit"] {
 }
 h2 {
     width: 80%;
-    font-size: 2vw;
+    font-size: 2.2vw;
     text-align: center;
     position: relative;
     top: 3vw;
@@ -103,32 +103,32 @@ h2 {
         rotate: 0;
     }
   20% {
-    rotate: 2deg;
+    rotate: 4deg;
   }
   40% {
-    rotate: -2deg;
+    rotate: -4deg;
   }
   60% {
-    rotate: 2deg;
+    rotate: 4deg;
   }
   80% {
-    rotate: -2deg;
+    rotate: -4deg;
   }
     100% {
         rotate: 0;
     }
 }
 .message {
-  width: 15vw;
+  width: 13vw;
   position: absolute;
-  top: 70%;
+  top: 73%;
   left: 30%;
 }
 .badges {
-    width: 7vw;
+    width: 8vw;
   position: absolute;
-  top: 27%;
-  left: 55%;
+  top: 29%;
+  left: 58%;
   animation: badge 5s ease-in-out infinite;
 }
 @media (max-width: 960px) {
@@ -164,7 +164,7 @@ h2 {
 }
 @media (max-width: 480px) {
      h2 {
-        top: 10vh;
+        top: 7vh;
         font-size: 6vw;
        
     }
@@ -175,7 +175,8 @@ h2 {
         left: -100vw;
     }
     .food {
-        width: 65%;
+        top: -15%;
+        max-width: 75%;
     } 
 
     .submit,
@@ -192,15 +193,27 @@ h2 {
 }
   .message {
   width: 40vw;
-  top: 75%;
+  top: 80%;
   left: 10%;
 }
   .badges {
    width: 27vw;
-  top: 37%;
+  top: 35%;
   left: 65%;
 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
