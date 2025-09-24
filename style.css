@@ -156,7 +156,7 @@ a {
   z-index: 100;
 }
 .toast {
-  background: white;
+  background: #000000;
   border-radius: 1vw;
   padding: 1vw;
   margin-bottom: 1vw;
@@ -168,7 +168,6 @@ a {
   font-family: "MuseoSansCyrl-500";
   font-size: 0.9vw;
   font-weight: 500;
-  color: #000;
   text-align: center;
 }
 .toast.show {
@@ -289,6 +288,7 @@ a {
         font-size: 5vw;
     }
 }
+
 
 
 
