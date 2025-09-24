@@ -46,6 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
       const stored = JSON.parse(localStorage.getItem('prize'));
       document.querySelector('h2').innerHTML = `Ваше бесплатное блюдо: <br> ${stored.name}`;
       document.querySelector('.food').src = `${stored.image}`;
+      if (stored.probability == 'База') {
+        document.querySelector('.badges').src = './img/one.webp';
+      }
+      if (stored.probability == 'Редкость') {
+        document.querySelector('.badges').src = './img/two.webp';
+      }
+      if (stored.probability == 'Эпик') {
+        document.querySelector('.badges').src = './img/three.webp';
+      }
+      if (stored.probability == 'Легенда') {
+        document.querySelector('.badges').src = './img/four.webp';
+      }
     } catch (error) {
       console.error("Ошибка чтения данных из localStorage:", error);
     }
@@ -108,6 +120,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
