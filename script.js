@@ -141,7 +141,7 @@ async function handleCodeSubmit(e) {
 
     if (response.ok || code == '1234') {
       phoneStorage.addUsedPhone(userPhoneForVerification);
-      location.href = "../../Desktop/Пейджи/index2.html";
+      location.href = "./index2.html";
     } else {
       const errorData = await response.json();
       const message = errorData.message || 'Неверный код';
@@ -176,5 +176,6 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
