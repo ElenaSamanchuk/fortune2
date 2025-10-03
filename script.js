@@ -98,11 +98,7 @@ async function handlePhoneSubmit(e) {
       );
       return;
     }
-     const agreement = document.querySelector('.agreement');
-     if (!agreement.checked) {
-      showToast("Поставьте галочку для согласия на обработку персональных данных", "", "error")};
-      return;
-    }
+     
   submitButton.value = "Отправка...";
   submitButton.disabled = true;
 
@@ -188,6 +184,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
