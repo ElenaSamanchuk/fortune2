@@ -85,9 +85,7 @@ async function handlePhoneSubmit(e) {
   const phoneRaw = phoneInput.value;
   const phoneClean = phoneRaw.replace(/\D/g, "");
  const agreement = document.getElementById('agreement');
-  console.log(agreement);
-  console.log(agreement.checked);
-  console.log(!agreement.checked);
+ 
   if (!validatePhone(phoneRaw)) {
     showToast("Введите корректный номер телефона", "", "error");
     phoneInput.classList.add("error");
@@ -101,7 +99,10 @@ async function handlePhoneSubmit(e) {
       );
       return;
     }
-   
+    if (!agreement.checked) {
+      showToast("Поставьте галочку для согласия на обработку персональных данных", "", "error")};
+      return;
+    }
    
   submitButton.value = "Отправка...";
   submitButton.disabled = true;
@@ -188,6 +189,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
