@@ -93,10 +93,7 @@ function sendDataToGoogleSheet() {
 }
 sendDataToGoogleSheet();
 
-document.getElementById("submit").addEventListener("click", () => {
-showToast(
-        "Возьмите свое блюдо из холодильника","", "error");
-});
+
 function showToast(title, description, type = "info") {
   const toastContainer = document.getElementById("toastContainer");
   const toast = document.createElement("div");
@@ -120,6 +117,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
