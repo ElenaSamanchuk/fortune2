@@ -98,7 +98,6 @@ async function handlePhoneSubmit(e) {
       );
       return;
     }
-  
   submitButton.value = "Отправка...";
   submitButton.disabled = true;
 
@@ -184,8 +183,6 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
-
-
 
 
 
