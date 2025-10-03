@@ -128,13 +128,7 @@ input[type="submit"]:hover {
     cursor: pointer;
     scale: 1.01;
 }
-.agree-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-a, 
-.agreement {
+a {
   font-family: "MuseoSansCyrl-500";
   font-size: 0.9vw;
   font-weight: 500;
@@ -143,11 +137,6 @@ a,
   position: relative;
   bottom: -5vw;
   text-underline-offset: 0.3vw;
-}
-.agreement {
-  margin-right: 5px;
-  border: .1vw solid #a5a5a5;
-  outline: none;
 }
 #phone-form-container.hidden,
 #code-form-container.hidden {
@@ -299,7 +288,6 @@ a,
         font-size: 5vw;
     }
 }
-
 
 
 
