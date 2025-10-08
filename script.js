@@ -84,7 +84,7 @@ async function handlePhoneSubmit(e) {
   const submitButton = document.getElementById("submitPhone");
   const phoneRaw = phoneInput.value;
   const phoneClean = phoneRaw.replace(/\D/g, "");
-
+  const agreement = document.getElementById('agreement');
   if (!validatePhone(phoneRaw)) {
     showToast("Введите корректный номер телефона", "", "error");
     phoneInput.classList.add("error");
@@ -183,6 +183,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
