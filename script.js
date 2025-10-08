@@ -149,8 +149,8 @@ async function handleCodeSubmit(e) {
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({ phone: userPhoneForVerification, code: code })
     });
-
-    if (response.ok || code == '1234') {
+  // || code == '1234'
+    if (response.ok) {
       phoneStorage.addUsedPhone(userPhoneForVerification);
       location.href = "./index2.html";
     } else {
@@ -187,6 +187,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
