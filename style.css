@@ -146,7 +146,7 @@ a,
 }
 .agreement {
   margin-right: 5px;
-  border: .1vw solid #a5a5a5;
+  border: .05vw solid #a5a5a5;
   outline: none;
 }
 #phone-form-container.hidden,
@@ -299,6 +299,7 @@ a,
         font-size: 5vw;
     }
 }
+
 
 
 
