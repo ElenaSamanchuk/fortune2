@@ -90,12 +90,16 @@ async function handlePhoneSubmit(e) {
     phoneInput.classList.add("error");
     return;
   }
-  if (phoneStorage.isPhoneUsed(phoneRaw)) {
+  else if (phoneStorage.isPhoneUsed(phoneRaw)) {
       showToast(
         "Этот номер уже участвовал в&nbsp;розыгрыше!",
         "Каждый номер может участвовать только один раз.",
         "error"
       );
+      return;
+    }
+  else  if (!agreement.checked) {
+      showToast("Поставьте галочку для согласия на обработку персональных данных", "", "error")};
       return;
     }
  
@@ -184,6 +188,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
