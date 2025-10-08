@@ -146,7 +146,7 @@ a,
 }
 .agreement {
   margin-right: 5px;
-  border: .05vw solid #a5a5a5;
+  border: 1px solid #a5a5a5 !important;
   outline: none;
 }
 #phone-form-container.hidden,
@@ -300,6 +300,7 @@ a,
         padding: 1vw 1.2vw;
     }
 }
+
 
 
 
