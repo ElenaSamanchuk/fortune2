@@ -102,6 +102,7 @@ async function handlePhoneSubmit(e) {
       showToast("Поставьте галочку для согласия на обработку персональных данных", "", "error")};
       return;
     }
+else {
  
   submitButton.value = "Отправка...";
   submitButton.disabled = true;
@@ -128,6 +129,7 @@ async function handlePhoneSubmit(e) {
     submitButton.value = "Получить код";
     submitButton.disabled = false;
   }
+}
 }
 
 async function handleCodeSubmit(e) {
@@ -188,6 +190,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
