@@ -90,7 +90,7 @@ async function handlePhoneSubmit(e) {
     phoneInput.classList.add("error");
     return;
   }
-  else if (phoneStorage.isPhoneUsed(phoneRaw)) {
+  if (phoneStorage.isPhoneUsed(phoneRaw)) {
       showToast(
         "Этот номер уже участвовал в&nbsp;розыгрыше!",
         "Каждый номер может участвовать только один раз.",
@@ -98,11 +98,6 @@ async function handlePhoneSubmit(e) {
       );
       return;
     }
-  else  if (!agreement.checked) {
-      showToast("Поставьте галочку для согласия на обработку персональных данных", "", "error")};
-      return;
-    }
-else {
  
   submitButton.value = "Отправка...";
   submitButton.disabled = true;
@@ -129,7 +124,6 @@ else {
     submitButton.value = "Получить код";
     submitButton.disabled = false;
   }
-}
 }
 
 async function handleCodeSubmit(e) {
@@ -190,6 +184,7 @@ function showToast(title, description, type = "info") {
     }, 300);
   }, 4000);
 }
+
 
 
 
