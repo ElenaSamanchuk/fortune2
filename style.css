@@ -136,7 +136,7 @@ input[type="submit"]:hover {
 a, 
 .agreement {
   font-family: "MuseoSansCyrl-500";
-  font-size: 0.9vw;
+  font-size: 0.8vw;
   font-weight: 500;
   color: #a5a5a5;
   margin-bottom: 0.8vw;
@@ -282,7 +282,7 @@ a,
         top: -6vw;
     }
     a {
-        width: 50%;
+        width: 60%;
         font-size: 3vw;
         text-align: center;
         margin-bottom: 2vw;
@@ -300,6 +300,7 @@ a,
         padding: 1.2vw 1.1vw;
     }
 }
+
 
 
 
